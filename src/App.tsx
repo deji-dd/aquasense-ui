@@ -32,9 +32,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 
-const API_URL = import.meta.env.VITE_API_URL || "https://api.ayodejib.dev";
-const DEVICE_ID = import.meta.env.VITE_DEVICE_ID || "pond_01";
-const DEVICE_SECRET = import.meta.env.VITE_DEVICE_SECRET || "";
+const API_URL = "https://api.ayodejib.dev";
+const DEVICE_ID = "pond_01";
 
 interface SensorReading {
   id: string;
@@ -70,7 +69,6 @@ export default function App() {
 
   const reqHeaders = {
     "Content-Type": "application/json",
-    "x-device-secret": DEVICE_SECRET,
   };
 
   const fetchData = async () => {
@@ -427,11 +425,10 @@ export default function App() {
             <div className="pt-4 border-t border-slate-100">
               <Button
                 variant={controls.simulate_breach ? "destructive" : "outline"}
-                className={`w-full text-xs font-semibold h-10 ${
-                  controls.simulate_breach
+                className={`w-full text-xs font-semibold h-10 ${controls.simulate_breach
                     ? "animate-pulse"
                     : "hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200"
-                }`}
+                  }`}
                 onClick={() => toggleControl("simulate_breach")}
               >
                 <ShieldAlert className="h-4 w-4 mr-2" />
@@ -482,11 +479,10 @@ function MetricCard({
           </div>
           <Badge
             variant="outline"
-            className={`text-[10px] font-bold uppercase px-2 py-0.5 border-0 ${
-              isDanger
+            className={`text-[10px] font-bold uppercase px-2 py-0.5 border-0 ${isDanger
                 ? "bg-rose-100 text-rose-700"
                 : "bg-emerald-100 text-emerald-700"
-            }`}
+              }`}
           >
             {status}
           </Badge>
