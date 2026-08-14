@@ -10,6 +10,7 @@
     "types": [
       "vite/client"
     ],
+    "ignoreDeprecations": "6.0",
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
     "baseUrl": ".",
